@@ -1,11 +1,26 @@
 import { Injectable } from '@nestjs/common';
 import { CreatePhraseDto } from './dto/create-phrase.dto';
 import { UpdatePhraseDto } from './dto/update-phrase.dto';
+import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
 export class PhrasesService {
-  create(createPhraseDto: CreatePhraseDto) {
-    return 'This action adds a new phrase';
+
+  constructor(private readonly prisma: PrismaService) { }
+
+
+  async create(createPhraseDto: CreatePhraseDto) {
+    return await this.prisma.phrases.create({
+      data: {
+        phrase: createPhraseDto.phrase,
+        context: createPhraseDto.context,
+        author: createPhraseDto.author,
+        likes: createPhraseDto.likes,
+      },
+      select: {
+        id: true,
+      }
+    });
   }
 
   findAll() {
