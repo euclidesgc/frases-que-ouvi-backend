@@ -12,16 +12,15 @@ import { ApiGatewayV2Adapter } from '@h4ad/serverless-adapter/lib/adapters/aws';
 async function bootstrap() {
   const nestApp = await NestFactory.create(AppModule, new ExpressAdapter());
 
+  nestApp.useGlobalPipes(new ValidationPipe());
   // we need to wait until it initializes
   await nestApp.init();
 
   // then we get the instance of http adapter, it will be express
   const app = nestApp.getHttpAdapter().getInstance();
-  
-  app.useGlobalPipes(new ValidationPipe());
 
   return app;
-  
+
   // await app.listen(3000);
 }
 const expressFramework = new ExpressFramework();
@@ -29,11 +28,11 @@ const expressFramework = new ExpressFramework();
 const framework = new LazyFramework(expressFramework, bootstrap);
 
 export const handler = ServerlessAdapter.new(null)
-    //.setFramework(new ExpressFramework())
-    .setFramework(framework)
-    .setHandler(new DefaultHandler())
-    .setResolver(new PromiseResolver())
-    .addAdapter(new ApiGatewayV2Adapter())
-    .build();
+  //.setFramework(new ExpressFramework())
+  .setFramework(framework)
+  .setHandler(new DefaultHandler())
+  .setResolver(new PromiseResolver())
+  .addAdapter(new ApiGatewayV2Adapter())
+  .build();
 
 // bootstrap();
