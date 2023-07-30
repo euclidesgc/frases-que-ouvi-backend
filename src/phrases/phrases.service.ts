@@ -23,19 +23,28 @@ export class PhrasesService {
     });
   }
 
-  findAll() {
-    return `This action returns all phrases`;
+  async findAll() {
+    return await this.prisma.phrases.findMany();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} phrase`;
+  async findOne(id: number) {
+    return await this.prisma.phrases.findUnique({
+      where: {
+        id: id
+      }
+    });
   }
 
-  update(id: number, updatePhraseDto: UpdatePhraseDto) {
-    return `This action updates a #${id} phrase`;
+  async update(id: number, updatePhraseDto: UpdatePhraseDto) {
+    return await this.prisma.phrases.update({
+      where: { id: id },
+      data: updatePhraseDto
+    });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} phrase`;
+  async remove(id: number) {
+    return this.prisma.phrases.delete({
+      where: { id: id }
+    });
   }
 }
