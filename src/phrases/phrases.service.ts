@@ -27,6 +27,11 @@ export class PhrasesService {
     return await this.prisma.phrases.findMany();
   }
 
+  async random() {
+    const result = await this.prisma.$queryRaw`SELECT * FROM "Phrases" ORDER BY random() LIMIT 1;`;
+    return result;
+  }
+
   async findOne(id: number) {
     return await this.prisma.phrases.findUnique({
       where: {

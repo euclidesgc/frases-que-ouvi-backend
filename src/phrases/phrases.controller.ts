@@ -17,6 +17,11 @@ export class PhrasesController {
     return this.phrasesService.findAll();
   }
 
+  @Get('random')
+  getRandom() {
+    return this.phrasesService.random();
+  }
+
   @Get(':id')
   findOne(@Param('id', ParseIntPipe) id: number) {
     return this.phrasesService.findOne(id);
