@@ -1,6 +1,6 @@
 {
   "name": "frases-que-ouvi-backend",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "description": "Get a random phrase from a list of phrases that I heard from my friends",
   "author": "Euclides Catunda",
   "private": true,
