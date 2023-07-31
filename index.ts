@@ -13,9 +13,9 @@ const createFunction = async (expressInstance): Promise<void> => {
 
   const config = new DocumentBuilder()
     .setTitle('Frases que eu ouvi')
-    .setDescription('Frases que eu ouço no trabalho')
+    .setDescription('Frases que eu ouço no trabalho que as vezes me fazem pensar se não é melhor ser surdo.')
     .setVersion('1.0')
-    .addTag('frases')
+    .setBasePath('api')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('swagger', app, document);
