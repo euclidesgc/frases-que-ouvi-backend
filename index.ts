@@ -15,7 +15,8 @@ const createFunction = async (expressInstance): Promise<void> => {
     .setTitle('Frases que eu ouvi')
     .setDescription('Frases que eu ouço no trabalho que as vezes me fazem pensar se não é melhor ser surdo.')
     .setVersion('1.0')
-    .setBasePath('api')
+    .addServer('/api')
+    .addTag('BASE_URL: https://us-central1-phrases-que-ouvi.cloudfunctions.net/api/')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('swagger', app, document);

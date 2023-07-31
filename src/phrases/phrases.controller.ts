@@ -25,20 +25,16 @@ export class PhrasesController {
   }
 
   @Get(':id')
-  @ApiQuery({ name: 'id', type: Number, required: true, description: 'ID de uma frase cadastrada.' })
   findOne(@Param('id', ParseIntPipe) id: number) {
     return this.phrasesService.findOne(id);
   }
 
-  @Patch(':id')
-  @ApiQuery({ name: 'id', type: Number, required: true, description: 'ID de uma frase cadastrada.' })
-  @ApiQuery({ name: 'phrase', type: Map, required: true, description: '{ phrase: string, context: string, author: string, likes: number }' })
+  @Patch(':id')  
   update(@Param('id', ParseIntPipe) id: number, @Body() updatePhraseDto: UpdatePhraseDto) {
     return this.phrasesService.update(id, updatePhraseDto);
   }
 
   @Delete(':id')
-  @ApiQuery({ name: 'id', type: Number, required: true, description: 'ID de uma frase cadastrada.' })
   remove(@Param('id', ParseIntPipe) id: number) {
     return this.phrasesService.remove(id);
   }
