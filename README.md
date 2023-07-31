@@ -59,7 +59,7 @@ $ npm run start:prod
 
 ## Deploy
 
-```
+```bash
 # deploy
 $ npm run deploy
 ```
