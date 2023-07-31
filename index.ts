@@ -18,7 +18,7 @@ const createFunction = async (expressInstance): Promise<void> => {
     .addTag('frases')
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api/swagger', app, document);
+  SwaggerModule.setup('swagger', app, document);
 
   await app.init();
 };
