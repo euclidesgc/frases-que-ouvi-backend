@@ -24,11 +24,19 @@
 
 ## Description
 
-Uma api para registrar frases que ouvi.
+Uma api para registrar frases que ouvi e me questionar se as vezes não é melhor ser surdo.
+
+## Tutorial
+[Based on this Article ](https://robert-isaac.medium.com/nestjs-with-firebase-the-complete-guide-aa0ade41cdef)
+
 
 ## Installation
 
 ```bash
+# firebase cli
+$ npm install -g firebase-tools @nestjs/cli
+
+# install packages
 $ npm install
 ```
 
@@ -47,6 +55,11 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 
+```
+
+## Deploy
+
+```
 # deploy
 $ npm run deploy
 ```
