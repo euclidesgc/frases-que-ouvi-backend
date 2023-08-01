@@ -9,7 +9,6 @@ export class PhrasesController {
   constructor(private readonly phrasesService: PhrasesService) {}
 
   @Post()
-  @ApiQuery({ name: 'phrase', type: Map, required: true, description: '{ phrase: string, context: string, author: string, likes: number }' })
   create(@Body() createPhraseDto: CreatePhraseDto) {
     return this.phrasesService.create(createPhraseDto);
   }
